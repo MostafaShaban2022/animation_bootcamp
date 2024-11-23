@@ -1,15 +1,16 @@
+import 'package:animation_bootcamp/pages/business_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 
-class AnimatedContainerPage extends StatefulWidget {
-  const AnimatedContainerPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<AnimatedContainerPage> createState() => _AnimatedContainerPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
+class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
   bool isContainerVisible = true;
 
@@ -75,22 +76,38 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
               backgroundColor: Colors.red,
               type: BottomNavigationBarType.fixed,
               currentIndex: 0,
-              items: const <BottomNavigationBarItem>[
+              items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
+                  icon: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
+                    child: const Icon(
+                      Icons.home,
+                    ),
                   ),
                   label: 'Home',
                 ),
-                BottomNavigationBarItem(
+                const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.wallet,
                   ),
                   label: 'Wallet',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.business,
+                  icon: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BusinessPage()));
+                    },
+                    child: const Icon(
+                      Icons.business,
+                    ),
                   ),
                   label: 'Business',
                 ),

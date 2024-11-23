@@ -1,4 +1,4 @@
-import 'package:animation_bootcamp/pages/animated_container_page.dart';
+import 'package:animation_bootcamp/pages/home_page.dart.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimatedContainerPage(),
+      home: HomePage(),
     );
   }
 }
